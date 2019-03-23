@@ -15,7 +15,7 @@ class Race extends Component {
                         <h3>Choose Your Character's Race</h3>
                     </Col>
                 </Row>
-                <RaceCard/>
+                    <RaceCard/>
             </div>
         )
     }

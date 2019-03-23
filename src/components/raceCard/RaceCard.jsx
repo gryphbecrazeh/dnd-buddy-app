@@ -20,10 +20,10 @@ class RaceCard extends Component {
         const {races} = this.state;
         const raceList = races.map(race =>{
             return (
-                <Row className="my-5">
+                <Col xs="12" lg="6" className="my-5">
                     <Card className="bg-light">
                         <CardBody>
-                            <CardTitle><h4>{race.name}</h4></CardTitle>
+                            <CardTitle className=""><h4>{race.name}</h4></CardTitle>
                             <CardSubtitle>{race.desc}</CardSubtitle>
                             <CardText>
                                 <Row className="my-3">
@@ -46,14 +46,14 @@ class RaceCard extends Component {
                             <Button color="primary" block={true}>Select {race.name}</Button>
                         </CardBody>
                     </Card>
-                </Row>
+                </Col>
             );
         });
         return (
-            <div>
+            <Row>
                 {raceList}
-                {console.log(races)}
-            </div>
+                {console.log({races})}
+            </Row>
         );
     }
 }
