@@ -20,30 +20,30 @@ class RaceCard extends Component {
         const {races} = this.state;
         const raceList = races.map(race =>{
             return (
-                <Row>
-                    <Card>
+                <Row className="my-5">
+                    <Card className="bg-light">
                         <CardBody>
-                            <CardTitle>{race.name}</CardTitle>
+                            <CardTitle><h4>{race.name}</h4></CardTitle>
                             <CardSubtitle>{race.desc}</CardSubtitle>
                             <CardText>
-                                <Row>
+                                <Row className="my-3">
                                     {race.asi_desc}
                                 </Row>
-                                <Row>
-                                    <Col xs="3" md="6">Speed: {race.speed.walk}</Col>
-                                    <Col>Size: {race.size}</Col>
+                                <Row className="my-3">
+                                    <Col xs="2"><strong>Speed: </strong>{race.speed.walk}</Col>
+                                    <Col>{race.size}</Col>
                                 </Row>
-                                <Row>
+                                <Row className="my-3">
                                     {race.alignment}
                                 </Row>
-                                <Row>
+                                <Row className="my-3">
                                     {race.age}
                                 </Row>
-                                <Row>
+                                <Row className="my-3">
                                 {race.languages}
                                 </Row>
                             </CardText>
-                            <Button>Select {race.name}</Button>
+                            <Button color="primary" block={true}>Select {race.name}</Button>
                         </CardBody>
                     </Card>
                 </Row>

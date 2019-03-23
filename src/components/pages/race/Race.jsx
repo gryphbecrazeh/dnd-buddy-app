@@ -11,8 +11,8 @@ class Race extends Component {
         return (
             <div>
                 <Row>
-                    <Col>
-                        <h1>Choose Your Character's Race</h1>
+                    <Col className="text-center bg-primary text-light">
+                        <h3>Choose Your Character's Race</h3>
                     </Col>
                 </Row>
                 <RaceCard/>
