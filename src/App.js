@@ -6,7 +6,7 @@ import Stats from './components/stats/Stats';
 import Login from './components/pages/login/Login';
 import Fetch from './components/fetch/Fetch';
 import Race from './components/pages/race/Race';
-
+import ClassPage from './components/pages/classPage/ClassPage';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {fab,faGoogle} from '@fortawesome/free-brands-svg-icons';
@@ -17,7 +17,7 @@ import {Container,Row,Col} from 'reactstrap';
 library.add(faDiceD10,faDiceD20,fal,fab,faGoogle);
 const x={name:"Alderashe",level:5,race:"Half-Elf",class:"Ranger",hp:{hitPoints:32,maxHitPoints:32},stats:{str:1,con:1,dex:1,int:1,wis:1,cha:1},ac:14,proffBonus:2};
 class App extends Component {
-  state={activePage:"login",page:{}};
+  state={activePage:"home",page:{}};
   changePage(newPage){
     this.setState({activePage:newPage});
     this.pageHandler(newPage);
@@ -45,7 +45,7 @@ class App extends Component {
             </h1>
           </Col>
         </Row>
-
+{/* <ClassPage/> */}
         {/* <Race/> */}
          {/* <Header {...x}/>
          <Health {...x}{...x.hp}/>

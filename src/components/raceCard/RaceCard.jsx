@@ -7,7 +7,7 @@ class RaceCard extends Component {
         races:[],
     }
     componentWillMount(){
-        fetch('https://api-beta.open5e.com/races/?format=json')
+        fetch('http://www.dnd5eapi.co/api/races/')
             .then(res=>res.json())
             .then(json => {
                 this.setState({
@@ -16,32 +16,29 @@ class RaceCard extends Component {
                 })
             });
     }
+    // Get the details of the race object after it's been created, because I obviously don't understand react life cycles yet
+    getRaceDetails(){
+        const {races}=this.state;
+        if(races.length>0){
+            console.log(races[0].name);
+        }
+    }
     render() { 
         const {races} = this.state;
-        const raceList = races.map(race =>{
+        const raceList = races.map((race,index) =>{
+                fetch(race.url)
+                .then(res=>res.json())
+                .then(json=>{
+                    race.expanded=json;
+                    // console.log(race);
+                });
             return (
                 <Col xs="12" lg="6" className="my-5">
                     <Card className="bg-light">
                         <CardBody>
                             <CardTitle className=""><h4>{race.name}</h4></CardTitle>
-                            <CardSubtitle>{race.desc}</CardSubtitle>
+                            <CardSubtitle></CardSubtitle>
                             <CardText>
-                                <Row className="my-3">
-                                    {race.asi_desc}
-                                </Row>
-                                <Row className="my-3">
-                                    <Col xs="2"><strong>Speed: </strong>{race.speed.walk}</Col>
-                                    <Col>{race.size}</Col>
-                                </Row>
-                                <Row className="my-3">
-                                    {race.alignment}
-                                </Row>
-                                <Row className="my-3">
-                                    {race.age}
-                                </Row>
-                                <Row className="my-3">
-                                {race.languages}
-                                </Row>
                             </CardText>
                             <Button color="primary" block={true}>Select {race.name}</Button>
                         </CardBody>
@@ -52,7 +49,8 @@ class RaceCard extends Component {
         return (
             <Row>
                 {raceList}
-                {console.log({races})}
+                {/* {console.log(races)} */}
+                {this.getRaceDetails()}
             </Row>
         );
     }
